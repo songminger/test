@@ -3,4 +3,4 @@
  service v2ray status
  vim /etc/v2ray/config.json
  service v2ray status
- service v2ray star
+ service v2ray start
