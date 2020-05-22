@@ -4,3 +4,6 @@
  vim /etc/v2ray/config.json
  service v2ray status
  service v2ray start
+
+# centos stop firewar (vultr)
+systemctl stop firewalld.service
