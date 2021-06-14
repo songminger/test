@@ -5,7 +5,42 @@
  bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
 
 service v2ray status
- vim /etc/v2ray/config.json
+ vim /usr/local/etc/v2ray/config.json
+ 
+ {
+  "inbounds": [{
+    "port": 8080,
+    "protocol": "vmess",
+    "settings": {
+      "clients": [
+        {
+          "id": "4fc685bd-8c1a-48b9-9e62-fffb67a3bf06",
+          "level": 1,
+          "alterId": 64
+        }
+      ]
+    }
+  }],
+  "outbounds": [{
+    "protocol": "freedom",
+    "settings": {}
+  },{
+    "protocol": "blackhole",
+    "settings": {},
+    "tag": "blocked"
+  }],
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "ip": ["geoip:private"],
+        "outboundTag": "blocked"
+      }
+    ]
+  }
+}
+
+ 
  service v2ray status
  service v2ray start
 
